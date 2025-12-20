@@ -14,7 +14,7 @@ public class Solution {
                     String firstName = elf.get("firstName").toString();
                     String lastName = elf.get("lastName").toString();
                     double callPricePerElf = calculateCallPricePerElf(elf, priceList);
-                    IO.println("%s %s %.2f".formatted(firstName, lastName, callPricePerElf));
+                    IO.println("%s %s %.2f".formatted(lastName, firstName, callPricePerElf));
                 });
         IO.println("Total: %.2f".formatted(grandTotal));
     }
