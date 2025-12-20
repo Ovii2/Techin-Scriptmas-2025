@@ -36,13 +36,7 @@ public class Solution {
 
     public static double calculateGrandTotalCallPrice(List<Map<String, Object>> elves, Map<String, Double> priceList) {
         return elves.stream()
-                .flatMap(elf -> ((List<Map<String, Object>>) elf.get("calls"))
-                        .stream())
-                .map(call -> {
-                    String city = (String) call.get("city");
-                    Integer minutes = (Integer) call.get("minutes");
-                    return minutes * priceList.get(city);
-                })
+                .map(elf -> calculateCallPricePerElf(elf, priceList))
                 .reduce(0.0, Double::sum);
     }
 }
